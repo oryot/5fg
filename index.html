@@ -266,56 +266,62 @@
     </div>
 
     <!-- 2. SETUP SCREEN -->
-<div id="setupScreen" class="hidden fixed inset-0 z-50 w-full h-full bg-slate-50/95 backdrop-blur-sm overflow-y-auto custom-scrollbar flex p-4">
+<div id="setupScreen" class="hidden fixed inset-0 z-50 w-full h-full bg-slate-50/95 backdrop-blur-sm overflow-hidden flex p-4">
         
-        <div class="bg-white rounded-3xl shadow-2xl p-6 w-full max-w-md text-center border border-gray-100 flex flex-col m-auto">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md text-center border border-gray-100 flex flex-col m-auto max-h-[90vh]">
             
-	<div class="mb-4 border-b pb-4 border-gray-100 relative">
-	<button onclick="goBackToCover()" class="absolute left-0 top-0 p-2 bg-gray-50 rounded-full text-gray-500 hover:text-green-600 hover:bg-green-100 transition shadow-sm border border-gray-200 group">
-     		<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        	<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-    		</svg>
-	</button>
+            <div class="p-4 border-b border-gray-100 relative shrink-0 z-10 bg-white rounded-t-3xl">
+                <button onclick="goBackToCover()" class="absolute left-3 top-4 p-2 bg-gray-50 rounded-full text-gray-500 hover:text-green-600 hover:bg-green-100 transition shadow-sm border border-gray-200 group">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
                 
-                <div class="px-10">
+                <div class="px-12">
                     <h1 class="text-xl md:text-2xl font-extrabold text-green-700 mb-1">ลงทะเบียนผู้เข้าแข่งขัน</h1>
                     <p class="text-xs md:text-sm text-gray-500">กรุณาเลือกจำนวนทีมและตั้งชื่อทีม</p>
                 </div>
             </div>
 
-            <div class="bg-orange-50 border-2 border-orange-200 rounded-xl p-3 mb-4 text-left shadow-sm relative mt-2">
-                <div class="absolute -top-3 -left-2 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">คำชี้แจง</div>
-                <p class="text-gray-900 text-sm leading-relaxed mt-1 mb-2">
-                    <span class="mr-1">📝</span> ให้นักเรียนช่วยกันจำแนกภาพอาหารที่เปิดได้ ลงในตะกร้าอาหารหลัก 5 หมู่ ให้ถูกต้องและรวดเร็วที่สุด
-                </p>
-                <div class="border-t border-orange-200 pt-2 mt-2">
-                    <h4 class="text-xs font-bold text-orange-800 mb-1">🎯 เกณฑ์การให้คะแนน:</h4>
-                    <ul class="text-xs text-gray-700 space-y-1 ml-1">
-                        <li class="flex items-center"><span class="mr-1 text-green-600">✅</span> ตอบถูก +10 คะแนน</li>
-                        <li class="flex items-center"><span class="mr-1 text-red-600">❌</span> ตอบผิด -5 คะแนน</li>
-                        <li class="flex items-center"><span class="mr-1 text-blue-600">⏳</span> เวลาเหลือวินาทีละ +1 คะแนน</li>
-                    </ul>
+            <div class="p-4 pt-2 overflow-y-auto custom-scrollbar flex-1">
+                
+                <div class="bg-orange-50 border-2 border-orange-200 rounded-xl p-3 mb-4 text-left shadow-sm relative mt-3">
+                    <div class="absolute -top-3 -left-2 bg-orange-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">คำชี้แจง</div>
+                    <p class="text-gray-900 text-sm leading-relaxed mt-1 mb-2">
+                        <span class="mr-1">📝</span> ให้นักเรียนช่วยกันจำแนกภาพอาหารที่เปิดได้ ลงในตะกร้าอาหารหลัก 5 หมู่ ให้ถูกต้องและรวดเร็วที่สุด
+                    </p>
+                    <div class="border-t border-orange-200 pt-2 mt-2">
+                        <h4 class="text-xs font-bold text-orange-800 mb-1">🎯 เกณฑ์การให้คะแนน:</h4>
+                        <ul class="text-xs text-gray-700 space-y-1 ml-1">
+                            <li class="flex items-center"><span class="mr-1 text-green-600">✅</span> ตอบถูก +10 คะแนน</li>
+                            <li class="flex items-center"><span class="mr-1 text-red-600">❌</span> ตอบผิด -5 คะแนน</li>
+                            <li class="flex items-center"><span class="mr-1 text-blue-600">⏳</span> เวลาเหลือวินาทีละ +1 คะแนน</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="w-full space-y-3 pb-1">
+                    <div class="text-left">
+                        <label class="block text-sm font-bold mb-1 text-gray-800">จำนวนทีมแข่งขัน:</label>
+                        <select id="teamCount" class="w-full p-2 border-2 border-gray-300 rounded-xl bg-white font-bold text-gray-800 focus:ring-4 focus:ring-green-200 outline-none transition text-sm" onchange="generateTeamInputs()">
+                            <option value="1">1 ทีม</option>
+                            <option value="2">2 ทีม</option>
+                            <option value="3">3 ทีม</option>
+                            <option value="4">4 ทีม</option>
+                            <option value="5">5 ทีม</option>
+                        </select>
+                    </div>
+
+                    <div id="teamNameContainer" class="space-y-2 p-1"></div>
                 </div>
             </div>
-            
-            <div class="w-full space-y-3">
-                <div class="text-left">
-                    <label class="block text-sm font-bold mb-1 text-gray-800">จำนวนทีมแข่งขัน:</label>
-                    <select id="teamCount" class="w-full p-2 border-2 border-gray-300 rounded-xl bg-white font-bold text-gray-800 focus:ring-4 focus:ring-green-200 outline-none transition text-sm" onchange="generateTeamInputs()">
-                        <option value="1">1 ทีม</option>
-                        <option value="2">2 ทีม</option>
-                        <option value="3">3 ทีม</option>
-                        <option value="4">4 ทีม</option>
-                        <option value="5">5 ทีม</option>
-                    </select>
-                </div>
 
-                <div id="teamNameContainer" class="space-y-2 p-2"></div>
-
-                <button onclick="startGame()" class="w-full bg-gradient-to-b from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 text-lg font-extrabold py-2 md:py-3 px-6 rounded-2xl shadow-lg transform transition hover:scale-105 active:scale-95 border-b-4 border-yellow-600 mt-2">
+            <div class="p-4 border-t border-gray-100 bg-gray-50 rounded-b-3xl shrink-0 z-10">
+                <button onclick="startGame()" class="w-full bg-gradient-to-b from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-yellow-900 text-lg font-extrabold py-3 px-6 rounded-2xl shadow-lg transform transition hover:scale-105 active:scale-95 border-b-4 border-yellow-600">
                     เริ่มการแข่งขัน! 🏁
                 </button>
             </div>
+
         </div>
     </div>
 
