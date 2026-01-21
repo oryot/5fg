@@ -689,6 +689,7 @@
             document.getElementById('timeUpModal').classList.remove('flex');
             
             const container = document.getElementById('foodContainer');
+	    container.scrollTop = 0;  // สั่งให้ Scrollbar ดีดกลับไปบนสุด
             container.innerHTML = '';
             
             const shuffledFood = [...foodData].sort(() => Math.random() - 0.5);
